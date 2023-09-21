@@ -13,13 +13,17 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { 
+    faBars
+  } from '@fortawesome/free-solid-svg-icons';
 
 /* add icons to the library */
-library.add(faUserSecret)
+library.add(faUserSecret, faBars)
 
 const app = createApp(App)
 
 app.component('ProductList', ProductList) 
-app.component('font-awesome-icon', FontAwesomeIcon) 
+app.component('font-awesome-icon', FontAwesomeIcon)
+
 
 app.use(router).use(VueSweetalert2).mount('#app')

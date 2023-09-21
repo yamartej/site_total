@@ -7,7 +7,12 @@ const routes = [
     name: 'Home',
     component: Home
   },
-  // Otras rutas de tu aplicación
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
+    meta: { requiresAuth: true },
+  },
 ]
 
 const router = createRouter({

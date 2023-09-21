@@ -63,6 +63,7 @@
 
         // Aquí puedes manejar la respuesta de la API
         console.log(respuesta.data); // Esto es solo un ejemplo, puedes realizar otras acciones según tu lógica
+        this.$router.push({ name: 'Dashboard' });
 
       } catch (error) {
         console.error('Error al iniciar sesión:', error);
