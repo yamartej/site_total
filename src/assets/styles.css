@@ -1,0 +1,75 @@
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.home {
+    background-color: #F7F8F3;
+  }
+/* Clase para el botón principal */
+
+/* Estilos de Tipografía */
+.font-roboto {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  }
+  
+  .font-arial {
+    font-family: Arial, sans-serif;
+  }
+  
+  .font-helvetica {
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  .font-open-sans {
+    font-family: 'Open Sans', Arial, sans-serif;
+  }
+  
+  .font-size-header {
+    font-size: 24px;
+  }
+  
+  .font-size-main-text {
+    font-size: 16px;
+  }
+  
+  .font-size-secondary-text {
+    font-size: 14px;
+  }
+  
+  /* Estilos de Botones */
+  .button-primary {
+    background-color: #52ADA2; /* Fondo de Botones: Verde Menta */
+    color: white; /* Texto de Botones: Blanco */
+  }
+  
+  .button-secondary {
+    background-color: #52ADA2; /* Fondo de Botones: Verde Menta */
+    color: #333333; /* Texto de Botones: Gris Oscuro */
+  }
+  
+  .button-primary:hover,
+  .button-secondary:hover {
+    background-color: #ADDCCA; /* Efecto Hover: Verde Menta Oscuro */
+  }
+  
+  /* Estilos del Menú Lateral */
+  .sidebar {
+    background-color: #52ADA2; /* Fondo del Menú: Verde Azulado */
+    color: white; /* Texto del Menú: Blanco */
+  }
+  
+  /* Estilos de Iconos */
+  .icon-white {
+    color: #F7F8F3; /* Color de Iconos: Blanco Hueso */
+  }
+  
+  .icon-green {
+    color: #52ADA2; /* Color de Iconos: Verde Azulado */
+  }
+  
+  /* Estilos del Header de Tablas */
+  .table-header {
+    background-color: #ADDCCA; /* Fondo del Header: Verde Menta */
+    color: white; /* Texto del Header: Blanco */
+  }
+  
