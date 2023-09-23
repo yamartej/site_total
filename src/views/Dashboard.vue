@@ -3,7 +3,7 @@
     <div class="wrapper">
         <HeaderComponent/>
       <!-- Menú lateral -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <aside class="main-sidebar sidebar-dark-primary elevation-4" >
         <!-- Logo -->
         <router-link to="/dashboard" class="brand-link">
           <img src="@/assets/logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -38,12 +38,13 @@
     name: 'DashboardPage',
     components: {
         HeaderComponent,
-    }
+    },
     // Resto de las opciones del componente
   }
   </script>
   
   <style scoped>
   /* Estilos específicos para este componente */
+  
   </style>
   
