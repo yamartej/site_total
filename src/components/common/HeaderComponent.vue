@@ -119,7 +119,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <button onclick="logout">Salir</button>
+          <!--<button onclick="logout">Salir</button>-->
           <a class="nav-link" data-widget="control-sidebar" data-slide="true" @click="logout" href="#" role="button">
             <font-awesome-icon :icon="['fas', 'door-closed']" />
           </a>
@@ -130,27 +130,15 @@
 </template>
 
 <script>
-import axios from 'axios';
-
-
 
 export default {
   name: 'HeaderComponent',
   methods:{
     async logout() {
-      try {
-        // Hacer una solicitud a tu API para destruir el token
-        await axios.post('http://127.0.0.1:8000/api/logout', null, {
-          headers: {
-            Authorization: `Bearer 38|yqBw48Qt1NPafozt9kD0puI2W48y6Jvg0x4vt0zB` // this.accessToken debe ser el token del usuario autenticado
-          }
-        });
-
-        // Redirigir al usuario a la vista de inicio de sesión
-        this.$router.push({ name: 'home' });
-      } catch (error) {
-        console.error('Error al realizar el logout:', error);
-      }
+      console.log("entro1")
+      this.$store.dispatch('logout', null);
+      this.$router.push({ name: 'Home' });
+      
     },
   }
   

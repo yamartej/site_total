@@ -2,6 +2,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import ProductList from './components/ProductList.vue'
 import router from './router'
+import store from './store'
+
+
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 window.$ = window.jQuery = require("jquery");
@@ -19,6 +22,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 
+
 import { faBars, 
   faDoorClosed, 
   faComment, 
@@ -28,6 +32,8 @@ import { faBars,
   faEnvelope,
   faUser,
   faFile, faExpandArrowsAlt, faThLarge} from '@fortawesome/free-solid-svg-icons'
+
+
 
 /* add icons to the library */
 library.add(faUserSecret, 
@@ -42,8 +48,13 @@ library.add(faUserSecret,
 
 const app = createApp(App)
 
+if (process.env.NODE_ENV === 'development') {
+  app.config.devtools = true;
+}
+
 app.component('ProductList', ProductList) 
 app.component('font-awesome-icon', FontAwesomeIcon)
 
 
-app.use(router).use(VueSweetalert2).mount('#app')
+
+app.use(router).use(store).use(VueSweetalert2).mount('#app')

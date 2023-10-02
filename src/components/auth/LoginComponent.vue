@@ -5,9 +5,8 @@
           
           <div class="card-body login-card-body">
             <p class="login-box-msg font-size-header"><b>Total</b>PLUS</p>
-            
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Email" v-model="email">
+              <input type="email" class="form-control" placeholder="Email" v-model="form.email">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span>
@@ -15,7 +14,7 @@
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Password" v-model="password">
+              <input type="password" class="form-control" placeholder="Password" v-model="form.password">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
@@ -32,7 +31,9 @@
                 </div>
               </div>
               <div class="col-7">
-                <button @click="iniciarSesion" class="btn btn-block button-primary">Iniciar Sesión</button>
+                <button @click="iniciarSesion" class="btn btn-block button-primary">
+                  <span v-if="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Iniciar Sesión</button>
               </div>
             </div>
             <div class="social-auth-links text-center mb-3">
@@ -49,27 +50,28 @@
     </div>
 </template>  
   <script>
-  import axios from 'axios';
   import Swal from 'sweetalert2';
   export default {
   name: 'LoginComponent',
   methods: {
     async iniciarSesion() {
       try {
-        const respuesta = await axios.post('http://127.0.0.1:8000/api/login', {
-          email: this.email,
-          password: this.password
-        });
+        
+        this.isLoading = true;
+        //const respuesta = this.$store.dispatch('login', this.form);
+        this.loginResponse = await this.$store.dispatch('login', this.form);
+        //this.$store.dispatch('login', this.form);
+        //console.log("respuesta=", respuesta.message)
 
-        // Aquí puedes manejar la respuesta de la API
-        console.log(respuesta.data); // Esto es solo un ejemplo, puedes realizar otras acciones según tu lógica
+           
         this.$router.push({ name: 'Dashboard' });
+        this.isLoading = false;
 
       } catch (error) {
         console.error('Error al iniciar sesión:', error);
         const mensajeDeError = error.response.data.error;
         Swal.fire('Error de inicio de sesión', mensajeDeError, 'error');
-        
+        this.isLoading = false;
         
       }
     }
@@ -77,8 +79,12 @@
   
   data() {
     return {
-      email: '',
-      password: ''
+      isLoading: false, // Inicialmente, no hay carga
+      form: {
+        email: '',
+        password: ''
+      },
+      
     };
   }
 }
