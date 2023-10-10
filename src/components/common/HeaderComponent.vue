@@ -130,12 +130,17 @@
 </template>
 
 <script>
-
+import Cookies from 'js-cookie';
 export default {
   name: 'HeaderComponent',
   methods:{
     async logout() {
       console.log("entro1")
+
+      const token = Cookies.get('auth_token');
+
+      console.log("token", token)
+      
       this.$store.dispatch('logout', null);
       this.$router.push({ name: 'Home' });
       

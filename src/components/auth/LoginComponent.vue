@@ -51,7 +51,11 @@
 </template>  
   <script>
   import Swal from 'sweetalert2';
+  import { mapGetters } from 'vuex';
   export default {
+    computed: {
+      ...mapGetters(['isLoggedIn', 'user', 'token']), // Asegúrate de que 'isLoggedIn', 'user' y 'token' coincidan con los nombres en tu store
+    },
   name: 'LoginComponent',
   methods: {
     async iniciarSesion() {

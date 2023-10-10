@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 
+import authMiddleware from '@/middleware/auth'; // Importa tu middleware
+
 const routes = [
   {
     path: '/',
@@ -12,6 +14,14 @@ const routes = [
     name: 'Dashboard',
     component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
     meta: { requiresAuth: true },
+    beforeEnter: authMiddleware, // Aplica el middleware de autenticación
+  },
+  {
+    path: '/ventas',
+    name: 'Ventas',
+    component: () => import(/* webpackChunkName: "dashboard" */ '../views/Ventas.vue'),
+    meta: { requiresAuth: true },
+    beforeEnter: authMiddleware, // Aplica el middleware de autenticación
   },
 ]
 
