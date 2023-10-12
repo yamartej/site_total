@@ -1,6 +1,7 @@
 <template>
 
     <div class="wrapper">
+      
         <HeaderComponent/>
       <!-- Menú lateral -->
       <aside class="main-sidebar sidebar-dark-primary elevation-4" >
@@ -45,6 +46,7 @@
     name: 'DashboardPage',
     components: {
         HeaderComponent,
+        
     },
     // Resto de las opciones del componente
   }

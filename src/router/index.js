@@ -13,8 +13,10 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
-    meta: { requiresAuth: true },
-    beforeEnter: authMiddleware, // Aplica el middleware de autenticación
+    meta: { 
+      requiresAuth: true 
+    },
+    //beforeEnter: authMiddleware, // Aplica el middleware de autenticación
   },
   {
     path: '/ventas',

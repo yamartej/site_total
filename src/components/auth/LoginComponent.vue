@@ -62,12 +62,7 @@
       try {
         
         this.isLoading = true;
-        //const respuesta = this.$store.dispatch('login', this.form);
         this.loginResponse = await this.$store.dispatch('login', this.form);
-        //this.$store.dispatch('login', this.form);
-        //console.log("respuesta=", respuesta.message)
-
-           
         this.$router.push({ name: 'Dashboard' });
         this.isLoading = false;
 
